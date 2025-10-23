@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+<div class="auth-container">
+    <form class="form-label" th:action="@{/login}" method="post">
+
+        <div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+        <div th:if="${logout}" class="alert alert-success" th:text="${logout}"></div>
+        <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+        <h2>Добро пожаловать в систему!</h2>
+
+        <div class="username">
+            <label for="inputUsername" class="form-label">Имя пользователя</label>
+            <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Введите имя пользователя" required>
+        </div>
+        <div class="password">
+            <label for="inputPassword" class="form-label">Пароль</label>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Введите пароль" required>
+
+        </div>
+
+        <div class="submit-login">
+            <button type="submit" class="submit-button">Войти</button>
+        </div>
+    </form>
+
+    <div class="registry-form">
+        <button class="submit-button">
+            <a th:href="@{/register}">Зарегистрироваться</a>
+        </button>
+    </div>
+</div>
+</body>
+
+</html>
